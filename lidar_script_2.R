@@ -108,8 +108,39 @@ plot(XY, col = "black", add = TRUE, pch = "*") # adding tree location to the plo
 
 
 
-LiDARForestStand(crownshape = c( "cone"), CL = 14, CW = 8, HCB = 10,
-                 X = 0, Y = 0, dbh = 0.3, crowncolor = "forestgreen",
+LiDARForestStand(crownshape = c( "cone"), CL = 14, CW = canopyList[,4], HCB = 10,
+                 X = canopyList[,1], Y = canopyList[,2], dbh = 0.3, crowncolor = "forestgreen",
                  stemcolor = "chocolate4", resolution="high", mesh=TRUE)
+
+
+
+# Set the dimensions of the displayed forest stand
+xlength<-20 # x length
+ylength<-15 # y length
+# Set the space between trees
+sx<-3 # x space length
+sy<-2 # y space length
+# Tree location grid
+XYgrid <- expand.grid(x = seq(1,xlength,sx), y = seq(1,ylength,sy))
+XYgrid<-cbind(canopyList[,1],canopyList[,2])
+# Get the number of trees
+Ntrees<-nrow(XYgrid)
+Ntrees<-nrow(canopyList)
+# Plot a virtual Eucalyptus forest plantation stand using the halfellipsoid tree crown shape
+# Set stand trees parameters
+meanHCB<-5 # mean of the height at canopy base
+sdHCB<-0.1 # standard deviation of the height at canopy base
+HCB<-rnorm(Ntrees, mean=meanHCB, sd=sdHCB) # height at canopy base
+CL<-HCB*1.4 # tree crown height
+CW<-HCB*0.5 # tree crown diameter
+CW<-sqrt(canopyList[,4]*4/3.14)
+open3d() # open a rgl window
+# Plotting the stand
+for( i in 1:Ntrees){
+  LiDARForestStand(crownshape = "cone", CL = CL[i], CW = CW[i],
+                   HCB = HCB[i], X = XYgrid[i,1], Y = XYgrid[i,2], dbh = 0.4,
+                   crowncolor = "forestgreen", stemcolor = "chocolate4",
+                   resolution="high", mesh=TRUE)
+}
 
 
