@@ -11,21 +11,25 @@ LAS<-readLAS(LASfile,short=TRUE)
 library(raster)
 
 las2<-raster("../lid_data/OSBS_chm.tif")
+las2<-raster("../lid_data/clipped_chm.tif")
+
 plot(las2)
 
-extent<-c(xmin=404000,xmax=404050,ymin=3285000,ymax=3285050)
+# extent<-c(xmin=404000,xmax=404050,ymin=3285000,ymax=3285050)
+# 
+# las3<-crop(las2,extent)
+# plot(las3)
 
-las3<-crop(las2,extent)
-plot(las3)
+xyz<-rasterToPoints(las2)
 
-xyz<-rasterToPoints(las3)
+
 
 # subset the data for height
 # xyz<-subset(LAS[,1:3],LAS[,3] >= 1.37)
 
 # get LiDAR clusters
 set.seed(1)
-clLAS<-kmeans(xyz, 100)
+clLAS<-kmeans(xyz, 50)
 
 # Set the points id
 id<-as.factor(clLAS$cluster)

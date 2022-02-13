@@ -6,7 +6,9 @@ library(rLiDAR)
 LASfile <- system.file("extdata", "LASexample1.las", package="rLiDAR")
 
 # Read LAS file
-LAS<-readLAS(LASfile,short=TRUE)
+LAS<-readLAS(LASfile)
+
+LAS<-readLAS("../lid_data/clipped_LAS.las")
 
 # subset the data for height
 xyz<-subset(LAS[,1:3],LAS[,3] >= 1.37)
