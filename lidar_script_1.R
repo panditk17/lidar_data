@@ -25,7 +25,7 @@ ppp4<-cbind(ppp[,1:2],id)
 chullTrees<-chullLiDAR2D(ppp4)
 
 plot(SpatialPoints(ppp[,1:2]),cex=0.5,col=ppp[,3])
-plot(chullTrees$chullPolygon,add=TRUE, border='green')
+plot(chullTrees$chullPolygon,add=TRUE, border='blue')
 
 
 
