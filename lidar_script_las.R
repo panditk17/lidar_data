@@ -1,5 +1,7 @@
 
 ## script to read liar data and plot
+## use rLiDAR package to do analysis
+## produce 3D trees
 
 library(rLiDAR)
 
