@@ -1,5 +1,5 @@
 ## codes to create 3D plots from lidar cloud
-## using packages lidR and magittr
+## using packages lidR and magrittr
 library(lidR)
 las1 = readLAS("../lid_data/OSFDP_NEON_2019.las", filter = "-keep_xy 404000, 3285000, 404100, 3285100")
 las1 = readLAS("../lid_data/OSFDP_NEON_2019.las")
