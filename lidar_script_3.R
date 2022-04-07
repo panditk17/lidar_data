@@ -1,5 +1,6 @@
 
 ## script to read liar data and plot
+## use las data to produce tree and raster metrics
 
 library(rLiDAR)
 
