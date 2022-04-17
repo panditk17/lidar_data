@@ -1,6 +1,7 @@
 
 ## script to read liar data and plot
 ## use las data to produce tree and raster metrics
+## received originally from Luke
 
 library(rLiDAR)
 
