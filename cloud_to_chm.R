@@ -18,6 +18,8 @@ plot(dtm)
 chm2<-chm-dtm
 plot(chm2)
 
+
+
 writeRaster(chm,"../lid_data/clipped_chm.tif",overwrite=TRUE)
 # Points-to-raster algorithm with a resolution of 0.5 meters replacing each
 # point by a 20-cm radius circle of 8 points
@@ -30,4 +32,5 @@ plot(chm, col = col)
 chm <- grid_canopy(las, res = 0.5, pitfree(c(0,2,5,10,15), c(0, 1.5)))
 plot(chm, col = col)
 
+## read las file
 las = readLAS("../lid_data/OSFDP_NEON_2019.las", filter = "-keep_xy 404000, 3285000, 404050, 3285050")
