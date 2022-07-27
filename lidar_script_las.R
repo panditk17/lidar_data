@@ -1,7 +1,7 @@
 
 ## script to read lidar data and plot
 ## use rLiDAR package to do analysis
-## produce 3D trees
+## produce 3D trees outputs
 
 library(rLiDAR)
 
