@@ -22,6 +22,8 @@ plot(las)
 dtm = grid_terrain(las, algorithm = tin())
 ttops <- find_trees(las, lmf(ws = 5))
 
+## creating figure based on normalized las
+
 plot_dtm3d(dtm, bg="white")
 
 x = plot(las,bg="white")
