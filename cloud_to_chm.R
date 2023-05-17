@@ -1,25 +1,24 @@
 ## codes to create canopy height model from cloud data
 ## last updated 04-18-2023
 
+## plot a las lidar file
 plot(las)
 
+## create histogram for the z variable
 hist(las$Z)
 col <- height.colors(50)
+
 # Points-to-raster algorithm with a resolution of 1 meter
 chm <- grid_canopy(las, res = 1, p2r())
 plot(chm, col = col)
 
-
-
-
+## create terrain model with las file
 dtm = grid_terrain(las, algorithm = tin())
 
 plot(dtm)
 
 chm2<-chm-dtm
 plot(chm2)
-
-
 
 writeRaster(chm,"../lid_data/clipped_chm.tif",overwrite=TRUE)
 # Points-to-raster algorithm with a resolution of 0.5 meters replacing each
