@@ -1,5 +1,5 @@
 
-## script to read liar data and plot
+## script to read lidar data and plot
 
 library(rLiDAR)
 
@@ -20,14 +20,13 @@ clLAS<-kmeans(xyz, 32)
 
 ppp2<-kmeans(ppp,16)
 
+## convert data format
 id<-as.factor(ppp2$cluster)
 ppp4<-cbind(ppp[,1:2],id)
 chullTrees<-chullLiDAR2D(ppp4)
 
 plot(SpatialPoints(ppp[,1:2]),cex=0.5,col=ppp[,3])
 plot(chullTrees$chullPolygon,add=TRUE, border='blue')
-
-
 
 # Set the points id
 id<-as.factor(clLAS$cluster)
