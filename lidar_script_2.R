@@ -15,6 +15,7 @@ las2<-raster("../lid_data/clipped_chm.tif")
 
 plot(las2)
 
+## commenting these commands 
 # extent<-c(xmin=404000,xmax=404050,ymin=3285000,ymax=3285050)
 # 
 # las3<-crop(las2,extent)
