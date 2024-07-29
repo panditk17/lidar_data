@@ -1,5 +1,6 @@
 ## codes to create canopy height model from cloud data
 ## last updated 04-18-2023
+## canopy height model
 
 ## plot a las lidar file
 plot(las)
