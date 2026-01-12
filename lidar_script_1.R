@@ -1,5 +1,6 @@
 
 ## script to read lidar data and plot
+## modified Jan 2026
 
 library(rLiDAR)
 
